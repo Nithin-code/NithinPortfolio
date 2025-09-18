@@ -62,6 +62,7 @@ fun ResponsiveLayout(
 
         item {
             ExperienceSection(
+                homeData = homeData,
                 title = "Experience",
                 deviceType = deviceType
             )

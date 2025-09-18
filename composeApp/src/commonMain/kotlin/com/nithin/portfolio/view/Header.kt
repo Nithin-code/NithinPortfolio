@@ -16,7 +16,9 @@ import androidx.compose.runtime.setValue
 import androidx.compose.ui.Modifier
 import androidx.compose.ui.draw.clip
 import androidx.compose.ui.graphics.Brush
+import androidx.compose.ui.input.key.Key.Companion.A
 import androidx.compose.ui.unit.dp
+import com.nithin.portfolio.downloadFile
 import com.nithin.portfolio.utils.DeviceType
 import com.nithin.portfolio.utils.PrimaryAccent
 import com.nithin.portfolio.utils.SurfaceBackGround
@@ -77,6 +79,10 @@ fun Header(
             CustomButton(
                 onclick = {
                     selectedBtn = it
+                    downloadFile(
+                        url = "https://foso.github.io/Jetpack-Compose-Playground/images/foundation/image/imagedemo.png",
+                        fileName = "image.png"
+                    )
                 },
                 text = "Download Resume",
                 deviceType = deviceType,
