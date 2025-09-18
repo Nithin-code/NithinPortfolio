@@ -19,12 +19,14 @@ import androidx.compose.runtime.remember
 import androidx.compose.runtime.setValue
 import androidx.compose.ui.Modifier
 import androidx.compose.ui.unit.dp
+import com.nithin.portfolio.model.HomeData
 import com.nithin.portfolio.utils.Constants
 import com.nithin.portfolio.utils.DeviceType
 import com.nithin.portfolio.utils.Divider
 import com.nithin.portfolio.utils.SurfaceBackGround
 import com.nithin.portfolio.utils.TextType
 import com.nithin.portfolio.view.components.AnimatableIcon
+import com.nithin.portfolio.view.components.ExperienceText
 import com.nithin.portfolio.view.components.ResponsiveBodyText
 import com.nithin.portfolio.view.components.ResponsiveText
 import nithinportfolio.composeapp.generated.resources.Res
@@ -32,6 +34,7 @@ import nithinportfolio.composeapp.generated.resources.down
 
 @Composable
 fun ExperienceSection(
+    homeData: HomeData,
     modifier: Modifier = Modifier,
     title : String = "Experience",
     deviceType : DeviceType,
@@ -41,7 +44,7 @@ fun ExperienceSection(
     }
 
     val maxLines = animateIntAsState(
-        targetValue = if (isExpanded) 20 else 2,
+        targetValue = if (isExpanded) Int.MAX_VALUE else 2,
         animationSpec = tween(durationMillis = 800)
     )
 
@@ -79,8 +82,7 @@ fun ExperienceSection(
                 )
 
             }
-            ResponsiveBodyText(
-                bodyText = Constants.EXPERIENCE,
+            ExperienceText(
                 deviceType = deviceType,
                 maxLines = maxLines.value
             )
